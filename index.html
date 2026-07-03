@@ -2,49 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Missing Person Poster - Risima Jorison Maluleke</title>
-  <!-- Link to your stylesheet -->
   <link rel="stylesheet" href="style.css">
-  <!-- Automatically pulls the Html2Canvas script tool from a secure online library -->
   <script src="https://cloudflare.com"></script>
 </head>
 <body>
 
-  <!-- The actual poster area to be turned into an image file -->
+  <!-- Main Poster Frame -->
   <div id="posterContainer" class="poster-canvas">
     
+    <!-- Top Full-Width Alert Header -->
     <div class="poster-header">MISSING</div>
     
-    <div class="person-name">Risima Jorison Maluleke</div>
-    
-    <div class="photo-container">
-      <!-- Ensure the image filename matches your uploaded photo on GitHub -->
-      <img src="risima.jpg" alt="Risima Jorison Maluleke Photo">
-    </div>
-    
-    <div class="details-box">
-      <p><strong>Height:</strong> 1.8m tall</p>
-      <p><strong>Complexion:</strong> Chocolate brown</p>
-      <p><strong>Clothes Worn:</strong> Royal blue tracksuit with a hoodie top, a dark green beanie, and black shoes.</p>
-    </div>
-    
-    <div class="contact-banner">
-      IF YOU HAVE ANY INFORMATION, PLEASE CONTACT:
-      <span class="phone-number">Sgt Mantwani: 061 489 3754</span>
-      <span class="phone-number">Celia Maluleke: 082 784 0671</span>
-      <span class="phone-number">Matlou: 076 248 9604</span>
-    </div>
+    <!-- Two-Column Layout Wrapper -->
+    <div class="poster-content-split">
+      
+      <!-- LEFT COLUMN: TWO STACKED IMAGES -->
+      <div class="left-image-column">
+        <div class="photo-container">
+          <img src="risima.jpg" alt="Risima Jorison Maluleke Photo 1">
+        </div>
+        <div class="photo-container">
+          <img src="risima2.jpg" alt="Risima Jorison Maluleke Photo 2">
+        </div>
+      </div>
+      
+      <!-- RIGHT COLUMN: ALL THE TEXT WRITING -->
+      <div class="right-text-column">
+        <div class="person-name">Risima Jorison Maluleke</div>
+        
+        <div class="details-box">
+          <p><strong>Height:</strong> 1.8m tall</p>
+          <p><strong>Complexion:</strong> Chocolate brown</p>
+          <p><strong>Clothes Worn:</strong> Royal blue tracksuit with a hoodie top, a dark green beanie, and black shoes.</p>
+        </div>
+        
+        <div class="contact-banner">
+          IF YOU HAVE ANY INFORMATION, PLEASE CONTACT:
+          <span class="phone-number">Sgt Mantwani:<br>061 489 3754</span>
+          <span class="phone-number">Celia Maluleke:<br>082 784 0671</span>
+          <span class="phone-number">Matlou:<br>076 248 9604</span>
+        </div>
+      </div>
+
+    </div><!-- End of split layout -->
     
   </div>
 
-  <!-- The action button outside the poster canvas layout -->
+  <!-- External Download Controller -->
   <div class="action-area">
     <button id="downloadBtn" class="download-button">💾 Download Poster as Image</button>
   </div>
 
-  <!-- Link to your functional JavaScript script -->
   <script src="script.js"></script>
 </body>
 </html>
-
