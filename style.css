@@ -1,60 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Missing Person Poster - Risima Jorison Maluleke</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cloudflare.com"></script>
-</head>
-<body>
+/* Reset margins and setup fluid box calculation sizing */
+* {
+  box-sizing: border-box;
+}
 
-  <!-- Main Poster Frame -->
-  <div id="posterContainer" class="poster-canvas">
-    
-    <!-- Top Full-Width Alert Header -->
-    <div class="poster-header">MISSING</div>
-    
-    <!-- Two-Column Layout Wrapper -->
-    <div class="poster-content-split">
-      
-      <!-- LEFT COLUMN: TWO STACKED IMAGES -->
-      <div class="left-image-column">
-        <div class="photo-container">
-          <img src="risima.jpg" alt="Risima Jorison Maluleke Photo 1">
-        </div>
-        <div class="photo-container">
-          <img src="risima2.jpg" alt="Risima Jorison Maluleke Photo 2">
-        </div>
-      </div>
-      
-      <!-- RIGHT COLUMN: ALL THE TEXT WRITING -->
-      <div class="right-text-column">
-        <div class="person-name">Risima Jorison Maluleke</div>
-        
-        <div class="details-box">
-          <p><strong>Height:</strong> 1.8m tall</p>
-          <p><strong>Complexion:</strong> Chocolate brown</p>
-          <p><strong>Clothes Worn:</strong> Royal blue tracksuit with a hoodie top, a dark green beanie, and black shoes.</p>
-        </div>
-        
-        <div class="contact-banner">
-          IF YOU HAVE ANY INFORMATION, PLEASE CONTACT:
-          <span class="phone-number">Sgt Mantwani:<br>061 489 3754</span>
-          <span class="phone-number">Celia Maluleke:<br>082 784 0671</span>
-          <span class="phone-number">Matlou:<br>076 248 9604</span>
-        </div>
-      </div>
+body {
+  background-color: #d1d1d1;
+  font-family: 'Arial Black', Impact, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 10px;
+}
 
-    </div><!-- End of split layout -->
-    
-  </div>
+/* Master canvas frame container bounds mapping */
+.poster-canvas {
+  background-color: #ffffff;
+  color: #000000;
+  width: 100%;
+  max-width: 480px; /* Forces poster content to scale gracefully on mobiles */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  border: 15px solid #cc0000;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
 
-  <!-- External Download Controller -->
-  <div class="action-area">
-    <button id="downloadBtn" class="download-button">💾 Download Poster as Image</button>
-  </div>
+/* Emergency banner design grid structure mapping */
+.poster-header {
+  background-color: #cc0000;
+  color: #ffffff;
+  font-size: 42px;
+  margin: -15px -15px 15px -15px;
+  padding: 10px 0;
+  letter-spacing: 3px;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+/* Side-by-side active column alignment map trigger */
+.poster-content-split {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  width: 100%;
+}
+
+/* Left side profile photo column blocks */
+.left-image-column {
+  flex: 1.1; 
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.photo-container {
+  width: 100%;
+  height: 185px; /* Restricts photos from blowing up across the screen */
+  border: 3px solid #000000;
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops photos proportionally into standard display frames */
+}
+
+/* Right side description text parameters wrapper map */
+.right-text-column {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.person-name {
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+  color: #cc0000;
+}
+
+.details-box {
+  font-family: Arial, sans-serif;
+  text-align: left;
+  background-color: #f9f9f9;
+  border: 1px solid #cccccc;
+  padding: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.details-box p {
+  margin: 4px 0;
+}
+
+/* High contrast background contact information block footer code */
+.contact-banner {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 8px;
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+
+.phone-number {
+  font-size: 15px;
+  color: #ffcc00;
+  margin: 6px 0 0 0;
+  display: block;
+  font-family: 'Arial Black', sans-serif;
+  line-height: 1.2;
+}
+
+/* Lower button configurations block mapping wrapper */
+.action-area {
+  margin: 15px 0;
+  width: 100%;
+  max-width: 480px;
+}
+
+.download-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
