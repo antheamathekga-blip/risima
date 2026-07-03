@@ -4,33 +4,177 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Missing Person Poster - Risima Jorison Maluleke</title>
-  <link rel="stylesheet" href="style.css">
   <script src="https://cloudflare.com"></script>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #d1d1d1;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 10px;
+    }
+
+    /* Master red-bordered poster container layout mapping */
+    .poster-canvas {
+      background-color: #ffffff;
+      color: #000000;
+      width: 100%;
+      max-width: 450px; 
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      border: 15px solid #cc0000;
+      padding: 15px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Emergency text header banner rules */
+    .poster-header {
+      background-color: #cc0000;
+      color: #ffffff;
+      font-size: 38px;
+      font-weight: bold;
+      font-family: 'Arial Black', Impact, sans-serif;
+      margin: -15px -15px 15px -15px;
+      padding: 10px 0;
+      letter-spacing: 3px;
+    }
+
+    /* Split layout side-by-side flex control elements mapping */
+    .poster-content-split {
+      display: flex;
+      gap: 12px;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    /* Left stacked layout image formatting column framework block */
+    .left-image-column {
+      flex: 1; 
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .photo-container {
+      width: 100%;
+      height: 185px; 
+      border: 3px solid #000000;
+      background-color: #eaeaea;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+    }
+
+    /* Right text-focused informational description layouts block wrapping */
+    .right-text-column {
+      flex: 1.1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    .person-name {
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Arial Black', Impact, sans-serif;
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      line-height: 1.2;
+      color: #cc0000;
+    }
+
+    .details-box {
+      text-align: left;
+      background-color: #f9f9f9;
+      border: 1px solid #cccccc;
+      padding: 8px;
+      font-size: 12px;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .details-box p {
+      margin: 4px 0;
+    }
+
+    /* Black background high-contrast bottom block contact details framework code */
+    .contact-banner {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 8px;
+      font-size: 11px;
+      letter-spacing: 0.2px;
+      text-align: center;
+    }
+
+    .phone-number {
+      font-size: 14px;
+      color: #ffcc00;
+      margin: 6px 0 0 0;
+      display: block;
+      font-family: 'Arial Black', sans-serif;
+      line-height: 1.3;
+    }
+
+    /* Green graphic deployment activation button elements mapping */
+    .action-area {
+      margin: 15px 0;
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .download-button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Main Poster Frame -->
   <div id="posterContainer" class="poster-canvas">
     
-    <!-- Top Full-Width Alert Header -->
     <div class="poster-header">MISSING</div>
     
-    <!-- Two-Column Layout Wrapper -->
     <div class="poster-content-split">
       
-      <!-- LEFT COLUMN: BOTH OF YOUR IMAGES STACKED -->
+      <!-- Left Image Column Stacking Area -->
       <div class="left-image-column">
         <div class="photo-container">
-          <!-- First Picture -->
-          <img src="risima.jpg" alt="Risima Jorison Maluleke Photo 1">
+          <img src="risima.jpg" alt="Risima Photo 1">
         </div>
         <div class="photo-container">
-          <!-- Second Picture named profile.jpg -->
-          <img src="profile.jpg" alt="Risima Jorison Maluleke Photo 2">
+          <img src="profile.jpg" alt="Risima Photo 2">
         </div>
       </div>
       
-      <!-- RIGHT COLUMN: ALL THE TEXT WRITING -->
+      <!-- Right Description Information Column Area -->
       <div class="right-text-column">
         <div class="person-name">Risima Jorison Maluleke</div>
         
@@ -48,15 +192,34 @@
         </div>
       </div>
 
-    </div><!-- End of split layout -->
+    </div>
     
   </div>
 
-  <!-- External Download Controller -->
   <div class="action-area">
     <button id="downloadBtn" class="download-button">💾 Download Poster as Image</button>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+      const poster = document.getElementById('posterContainer');
+      html2canvas(poster, {
+        scale: 2, 
+        useCORS: true,
+        logging: false
+      }).then(function(canvas) {
+        const imageElementUrl = canvas.toDataURL('image/png');
+        const triggerFileLink = document.createElement('a');
+        triggerFileLink.href = imageElementUrl;
+        triggerFileLink.download = 'Missing_Person_Risima_Maluleke.png';
+        document.body.appendChild(triggerFileLink);
+        triggerFileLink.click();
+        document.body.removeChild(triggerFileLink);
+      }).catch(function(error) {
+        alert('Image generation download failed.');
+        console.error(error);
+      });
+    });
+  </script>
 </body>
 </html>
